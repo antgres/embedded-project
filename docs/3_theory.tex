@@ -1,0 +1,16 @@
+\section{Theoretical background}\label{theory}
+
+\subsection{Internet of Things}\label{iot}
+
+The \textit{Internet of Things} (short: IoT) is "the network of physical objects or 'things' embedded with electronics, software, sensors and network connectivity. These objects do collect or exchange data." \cite{iot} This can range from a simple light bulb control via an app to a mesh of sensors in an eg. industrial hall with several monitored machines. The sensors do not have to be in the same place, but can also exchange data globally via the internet.
+
+
+\subsection{MQTT}\label{mqtt}
+
+The \textit{Message Queuing Telemetry Transport Protocol} (short: MQTT) is a "publish/subscribe messaging protocol [...], that is currently an OASIS [...] standard". \cite{mqtt} This was originally conceived as a lightweight communication protocol for \textit{Machine-to-Machine-communication} (short: M2M-communication) for IoT applications. Due to a low complexity, a high flexibility, low overheads of MQTT packets and the efficient distribution of messages to one or more recipients, MQTT is also suitable for embedded systems and in the communication between networks, applications and middleware. MQTT sends packages over TCP/IP on port 1883 or 8883. \cite{iot} \cite{oasis}\\
+
+MQTT is based on a publish/subscribe model, similar to the Robot Operating System (short: ROS). This means that instead of the classic client-server model, where the client receives a direct response from the server after his request, there is a third system involved which serves as the central distribution system: \textit{The broker}. The broker receives, coordinates and sends all requests to all participants, called \textit{nodes}, subscribed under a so-called \textit{topic}. All nodes can publish or subscribe to a topic. \cite{iot}\\
+
+In principle, this system is comparable to the \textit{Domain Name System} (short: DNS) where the clients make a request under a topic (URL) to a centrally coordinated Server, which resolves this message and forwards it to the requested system. The difference is that there is a known number of registered of IP’s under a URL to which the request needs to be sent. With MQTT, many systems can be notified under one topic, depending on who is subscribed to a topic.\\
+
+

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "MQTT_1_SCHEMA",
+    "specifications": {
+      "broker": "str",
+      "main_topic": "str",
+      "version": 1
+    },
+    "schema": "True"
+  },
+  {
+    "name": "ETHERNET_1_SCHEMA",
+    "specifications": {
+      "IPv4": "str",
+      "Port": "int",
+      "version": 1
+    },
+    "schema": "True"
+  }
+]

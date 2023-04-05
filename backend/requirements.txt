@@ -1,0 +1,11 @@
+regex~=2021.7.6
+coloredlogs~=15.0.1
+
+werkzeug~=1.0.1
+Flask~=1.1.2
+Flask-SQLAlchemy~=2.5.1
+flask_cors~=3.0.10
+SQLAlchemy~=1.4.3
+Flask-APScheduler~=1.12.2
+python-dotenv~=0.15.0
+paho-mqtt~=1.5.1

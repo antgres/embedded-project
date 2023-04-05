@@ -1,0 +1,138 @@
+\RequirePackage[hyphens]{url} %Brechen von urls nach spiegelstrichen
+
+\documentclass[a4paper,12pt]{article} %Parameter: twoside
+\usepackage[left= 2.5cm, right = 2.5cm, bottom = 4cm]{geometry} %Parameter: showframe
+% ============= Dokuinfos =============
+\usepackage{hyperref}
+\hypersetup{ %https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
+    colorlinks = false, 
+    breaklinks, %line breaking in a long hyperlink
+    hidelinks,
+    urlcolor=green, % farbe von \url
+    linkcolor =green, %Farbe von \ref
+    citecolor =green, %Farbe von \cite
+    linktoc = all %set to all if you want both sections and subsections linked
+}
+
+% ============= Packages =============
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel} % ngerman
+\usepackage[scaled]{helvet} % use helvetica font
+\usepackage[T1]{fontenc} %Schriftart
+\usepackage{color, xcolor} %colour
+\usepackage{float} %big H
+\usepackage{pdfpages}
+
+%%Graphikpaket mit Datenpfad
+\usepackage{graphicx}
+\graphicspath{ {image/} }
+\usepackage{caption} %https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+\usepackage{subcaption} %mehrere Bilder mit Untercaptions
+\usepackage{wrapfig}
+
+%Literaturverzeichnis
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage[ 
+% https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#Reference_guide
+% https://www.overleaf.com/learn/latex/Natbib_citation_styles
+% https://www.bibtex.com/e/entry-types/
+    backend=biber, % biber backend
+    natbib=true, % customising citations
+    % sorting=nty, % sort name, title, year
+    style=numeric % https://de.overleaf.com/learn/latex/Biblatex_bibliography_styles
+]{biblatex}
+\addbibresource{references.bib}
+
+%% zusätzliche Schriftzeichen der American Mathematical Society
+%\usepackage{amsfonts}
+%\usepackage{amsmath}
+
+% ============= zZ Einstellungen/Packages =============
+%%Nicht einrücken nach Absatz
+\setlength{\parindent}{0pt}
+
+%%Zeilenabstand
+\usepackage[onehalfspacing]{setspace} %singlespacing. onehalf-, double-
+
+%%Besondere Trennungen
+%\hyphenation{Design-entscheidungen}
+
+%%Weitere  Packages
+\usepackage{lipsum} %random Text erstellen mit \lipsum
+
+%%Untertitelanzahl erhöhen
+%https://tex.stackexchange.com/questions/186981/is-there-a-subsubsubsection-command
+
+%% Custom Footer with custom page numbering
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+ % Turn on the style
+\fancyhf{} % Start with clearing everything in the header and footer
+
+%% Adds new chapter depth
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+%% add new style for listing json
+\usepackage{listings}
+
+% ============= First Page edits =============
+\usepackage{titling} %Centering
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+% needed to set font correctly for the whole document 
+\renewcommand\familydefault{\sfdefault} 
+
+\title{Development of an IoT Full Stack System}
+\date{6th August 2021}
+
+\begin{document}
+    
+% ============= Dokumentbeginn =============
+\maketitle
+\newpage
+
+% Redefine plain style, which is used for titlepage and chapter beginnings
+% From https://tex.stackexchange.com/a/30230/828
+\fancypagestyle{plain}{%
+    \renewcommand{\headrulewidth}{0pt}%
+    \fancyhf{}%
+    \fancyfoot[L]{\color{gray}{\thepage~|~\pageref*{LastPage}}}%
+}
+\pagestyle{plain} % activate pagestyle
+\setcounter{page}{2} % Seitennummerierung abändern
+\tableofcontents %Inhaltsverzeichnis
+
+\newpage
+
+% \newpage
+% \listoffigures %Abbildungsverzeichnis
+% \listoftables %Tabellenverzeichnis
+
+
+\include{1_motivation}
+\include{2_requirements}
+\include{3_theory}
+\include{4_0_concept}
+
+\include{4_1_implement}
+\include{4_2_B_MC}
+\include{4_3_Frontend}
+
+%\include{5_0_implementation}
+
+\include{6_conclusion}
+
+
+
+\sloppy %Toleranzen setzen
+\printbibliography[heading=bibintoc]
+%\printbibliography[heading=bibintoc, keyword=pic, title={Pictures only}]
+\fussy %Toleranzen zurücksetzen
+
+
+
+\end{document}

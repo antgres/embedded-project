@@ -1,0 +1,9 @@
+\section{Conclusion}\label{summary}
+
+The initial objective in chapter \ref{scope} has been successfully achieved. A system was implemented that allows the user to add sensors, actuators and AS-Pairs in a modular way. This information is stored in a database and displayed on a frontend.\\
+
+Furthermore, the defined requirements in chapter \ref{req} were also successfully implemented. New AS-Pairs can be added via a UI on a website. The UI is simple and minimalistic. The frontend communicates with the backend and are coordinated with each other. The backend is scalable in the number of AS-Pairs and can communicate with them via any number of implemented interfaces. \\
+
+The AS-Pair is scalable in the number of sensors and actuators which can be implemented. These communicate with the backend via MQTT. The interfaces of the AS-Pairs can be accessed via the frontend. Due to the selected system architecture, all components are separated from each other and thus simplify maintainability.\\
+
+However, the system can be extended by some points in further versions. The frontend can extend the UI with further functions, such as deleting an AS-Pair and visualising the accumulated data in the database per AS-Pair. Furthermore, the communication paths between the three components needs to be encrypted, so that sensitive data cannot be intercepted, and the individual components need to be protected against attacks.
